@@ -206,6 +206,12 @@
   # Enable the status bar
   programs.waybar.enable = true;
 
+  home.file.".ssh" = {
+    target = ".ssh";
+    source = null;
+    mode = "0700";
+  };
+
   programs.ssh = {
     enable = true;
 
