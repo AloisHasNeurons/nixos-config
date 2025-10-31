@@ -10,7 +10,7 @@
   imports = [
     # ./nvim.nix
   ];
-  
+
   home.stateVersion = "25.05";
 
   nixpkgs = {
@@ -31,7 +31,7 @@
     steam
     firefox
     discord
-    
+
     fastfetch
 
     # --- Software Engineering ---
@@ -69,10 +69,10 @@
   # --- ZSH and Oh My Zsh Configuration ---
   programs.zsh = {
     enable = true;
-    
+
     autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;    
-    
+    syntaxHighlighting.enable = true;
+
     # This block sets up Oh My Zsh
     oh-my-zsh = {
       enable = true;
@@ -136,7 +136,7 @@
         "dunst"            # Start the notification daemon
         "swww-daemon"      # Start the wallpaper daemon
         # Set a wallpaper (replace with your path)
-        "swww img ~/Documents/nix-config/wallpapers/porco_rosso.jpg" 
+        "swww img ~/Documents/nix-config/wallpapers/porco_rosso.jpg"
         # Start a terminal
         "kitty"
       ];
@@ -145,13 +145,13 @@
       bind = [
         # App Launcher
         "$mainMod, Space, exec, fuzzel"
-        
+
         # Terminal
         "$mainMod, Return, exec, kitty" # Use SUPER + Enter for terminal
-        
+
         # Close window (W on AZERTY)
         "$mainMod, W, killactive,"
-        
+
         # Workspaces (AZERTY)
         "$mainMod, ampersand, workspace, 1"
         "$mainMod, eacute, workspace, 2"
@@ -182,9 +182,20 @@
   };
 
   # --- Enable Services ---
-  
+
   # Enable the status bar
   programs.waybar.enable = true;
+
+  programs.ssh = {
+    enable = true;
+
+    matchBlocks = {
+      "*" = { # Apply to all hosts
+        identityFile = [ "~/.ssh/id_ed25519" ];
+        addKeysToAgent = "yes";
+      };
+    };
+  };
 
   # Enable the notification daemon
   services.dunst = {
@@ -211,14 +222,18 @@
   };
 
   programs.home-manager.enable = true;
-  programs.git.enable = true;
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
   programs.git = {
-    userName = "Aloïs VINCENT";
-    userEmail = "alois.vincent@imt-atlantique.net";
+    enable = true;
+    settings = {
+      user = {
+        name = "Alois";
+        email = "your-email@example.com";
+      };
+    };
   };
 
   programs.kitty = {
