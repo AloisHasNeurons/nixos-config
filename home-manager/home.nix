@@ -55,6 +55,7 @@
     swww         # Wallpaper utility
     wl-clipboard # Clipboard tool for Wayland
     grim slurp   # Screenshot tools (grim=grab, slurp=select)
+    grimblast
     fuzzel
     btop
     brightnessctl
@@ -98,8 +99,6 @@
     '';
   };
 
-  # --- 2. COPIED from old file: Session Variables ---
-  # (Crucial for Wayland compatibility)
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1"; # Forces Electron apps (VSCode, etc.) to use Wayland
     _JAVA_AWT_WM_NONREPARENTING = "1"; # Fix for Java apps (IntelliJ)
@@ -177,6 +176,17 @@
         # Set brightness
         ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+
+
+        # Screenshots
+        # F11: Copy entire screen to clipboard
+        ", F11, exec, grimblast copy screen"
+        
+        # Shift + F11: Select an area to copy to clipboard
+        "SHIFT, F11, exec, grimblast copy area"
+        
+        # Ctrl + F11: Copy the active window to clipboard
+        "CTRL, F11, exec, grimblast copy active"
       ];
     };
   };
