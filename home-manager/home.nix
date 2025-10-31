@@ -106,7 +106,6 @@
     initContent = ''
       # --- Fastfetch ---
       fastfetch
-      direnv hook zsh
     '';
   };
 
