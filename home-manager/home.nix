@@ -47,6 +47,10 @@
     unzip
     wget
     curl
+    # Nix-specific for programming
+    direnv
+    nix-direnv # The bridge between direnv and nix
+    nixpkgs-fmt  # For formatting your .nix files
 
     # --- Desktop Essentials ---
     waybar       # The status bar
@@ -66,6 +70,12 @@
     jetbrains-mono
 
   ];
+
+  programs.direnv = {
+    enable = true;
+    # This automatically loads flakes
+    nix-direnv.enable = true;
+  };
 
   # --- ZSH and Oh My Zsh Configuration ---
   programs.zsh = {
@@ -96,6 +106,7 @@
     initContent = ''
       # --- Fastfetch ---
       fastfetch
+      direnv hook zsh
     '';
   };
 
@@ -181,10 +192,10 @@
         # Screenshots
         # F11: Copy entire screen to clipboard
         ", F11, exec, grimblast copy screen"
-        
+
         # Shift + F11: Select an area to copy to clipboard
         "SHIFT, F11, exec, grimblast copy area"
-        
+
         # Ctrl + F11: Copy the active window to clipboard
         "CTRL, F11, exec, grimblast copy active"
       ];
