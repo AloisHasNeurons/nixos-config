@@ -52,6 +52,14 @@
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
     };
+
+    # Garbage collector
+    gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 7d";
+    };
+
     # Opinionated: disable channels
     channel.enable = false;
 
@@ -72,13 +80,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixos"; # Define your hostname.
-
-  # --- Automatic Garbage Collection ---
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
-  };
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
