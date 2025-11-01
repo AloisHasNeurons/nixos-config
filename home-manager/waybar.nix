@@ -1,12 +1,7 @@
 # ~/Documents/nix-config/home-manager/waybar.nix
-{ pkgs, ... }:
+{ ... }:
 
 {
-  # Add the nerd fonts just for this module
-  home.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  font-awesome # Fallback font
-  ];
   programs.waybar = {
     enable = true;
 

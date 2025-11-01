@@ -67,7 +67,8 @@
     # --- Theming ---
     catppuccin-gtk  # A popular GTK theme
     papirus-icon-theme # A popular icon theme
-    jetbrains-mono
+    nerd-fonts.jetbrains-mono
+    font-awesome
 
   ];
 
@@ -262,7 +263,7 @@
     enable = true;
 
     font = {
-      name = "JetBrains Mono";
+      name = "JetBrainsMono Nerd Font";
       size = 12.0;
     };
 
@@ -270,7 +271,7 @@
     settings = {
       background_opacity = 0.9;
 
-      bold_italic_font = "JetBrains Mono:style=ExtraBold Italic";
+      bold_italic_font = "JetBrainsMono Nerd Font:style=ExtraBold Italic";
     };
   };
 
