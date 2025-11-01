@@ -206,23 +206,32 @@
   # Enable the status bar
   programs.waybar.enable = true;
 
-  home.file.".ssh" = {
-    target = ".ssh";
-    source = null;
-    mode = "0700";
-  };
-
+  # SSH Configuration - FIXED
   programs.ssh = {
     enable = true;
 
+    # This will create ~/.ssh/config with proper permissions
     matchBlocks = {
-      "*" = { # Apply to all hosts
+      # GitHub configuration
+      "github.com" = {
+        identityFile = "~/.ssh/id_ed25519";
+        addKeysToAgent = "yes";
+      };
+
+      # GitLab configuration
+      "gitlab.com" = {
+        identityFile = "~/.ssh/id_ed25519";
+        addKeysToAgent = "yes";
+      };
+
+      # Default for all other hosts
+      "*" = {
         identityFile = [ "~/.ssh/id_ed25519" ];
         addKeysToAgent = "yes";
       };
     };
   };
-
+  
   # Enable the notification daemon
   services.dunst = {
     enable = true;
