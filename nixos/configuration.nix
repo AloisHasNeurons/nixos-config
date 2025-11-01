@@ -158,12 +158,15 @@
   # Framework updates
   services.fwupd.enable = true;
 
+  # Keyring
+  services.gnome.gnome-keyring.enable = true;
+
   home-manager = {
     extraSpecialArgs = {inherit inputs; };
     users = {
       "alois" = import ../home-manager/home.nix;
     };
-  }; 
+  };
 
   users.users.alois = {
     isNormalUser = true;
