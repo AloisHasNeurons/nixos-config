@@ -4,7 +4,7 @@
 {
   # Add the nerd fonts just for this module
   home.packages = with pkgs; [
-    jetbrains-mono-nerd-font
+    nerd-fonts.jetbrains-mono
     (font-awesome.override { anIcons = true; }) # Fallback font
   ];
   programs.waybar = {
