@@ -63,6 +63,7 @@
     fuzzel
     btop
     brightnessctl
+    wlogout
 
     # --- Theming ---
     catppuccin-gtk  # A popular GTK theme
@@ -161,6 +162,9 @@
 
         # Close window (W on AZERTY)
         "$mainMod, W, killactive,"
+
+        # --- POWER MENU KEYBIND ---
+        "$mainMod, Esc, exec, wlogout"
 
         # Workspaces (AZERTY)
         "$mainMod, ampersand, workspace, 1"
