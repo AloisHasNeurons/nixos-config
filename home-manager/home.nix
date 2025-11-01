@@ -164,7 +164,7 @@
         "$mainMod, W, killactive,"
 
         # --- POWER MENU KEYBIND ---
-        "$mainMod, Esc, exec, wlogout"
+        "$mainMod, Escape, exec, wlogout"
 
         # Workspaces (AZERTY)
         "$mainMod, ampersand, workspace, 1"
