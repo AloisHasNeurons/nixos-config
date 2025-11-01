@@ -8,7 +8,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    # ./nvim.nix
+    ./waybar.nix
   ];
 
   home.stateVersion = "25.05";
@@ -202,9 +202,6 @@
   };
 
   # --- Enable Services ---
-
-  # Enable the status bar
-  programs.waybar.enable = true;
 
   programs.ssh = {
     enable = true;
