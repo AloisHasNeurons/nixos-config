@@ -33,6 +33,7 @@
     discord
 
     fastfetch
+    tldr
 
     # --- Software Engineering ---
     git
@@ -41,7 +42,7 @@
     ripgrep
     bat
     eza
-    vscode-fhs
+    vscode
     jetbrains.idea-ultimate
     kitty
     unzip
@@ -102,6 +103,7 @@
       cat = "bat";
       ls = "eza";
       nano = "micro";
+      tree = "eza --tree --no-git";
     };
 
     # This block holds all your custom startup scripts
