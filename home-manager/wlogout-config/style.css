@@ -1,0 +1,60 @@
+/* Catppuccin Mocha theme for wlogout */
+@define-color base   #1e1e2e;
+@define-color text   #cdd6f4;
+@define-color blue   #89b4fa;
+@define-color red    #f38ba8;
+@define-color lavender #b4befe;
+@define-color yellow #f9e2af;
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  background-image: none;
+  transition: 200ms;
+}
+
+window {
+  background-color: rgba(30, 30, 46, 0.7); /* Base @ 70% opacity */
+  backdrop-filter: blur(7px);
+}
+
+button {
+  background-color: @base;
+  color: @text;
+  border: 2px solid @blue;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+button:focus, button:hover {
+  background-color: @blue;
+  color: @base;
+}
+
+/* Style each button by its label */
+#lock {
+  border-color: @lavender;
+}
+#lock:hover {
+  background-color: @lavender;
+}
+
+#logout {
+  border-color: @yellow;
+}
+#logout:hover {
+  background-color: @yellow;
+}
+
+#reboot {
+  border-color: @blue;
+}
+#reboot:hover {
+  background-color: @blue;
+}
+
+#shutdown {
+  border-color: @red;
+}
+#shutdown:hover {
+  background-color: @red;
+}

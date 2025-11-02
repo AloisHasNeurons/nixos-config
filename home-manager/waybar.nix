@@ -123,6 +123,9 @@
         background-color: rgba(30, 30, 46, 0.7); /* Catppuccin Base @ 70% opacity */
         color: @text;
         border-bottom: 2px solid @surface0;
+
+        border-radius: 8px;
+        margin: 4px 4px;   
       }
 
       /* --- All Modules --- */
