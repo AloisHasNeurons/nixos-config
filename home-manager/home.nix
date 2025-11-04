@@ -51,7 +51,6 @@
     bat
     eza
     vscode
-    jetbrains.idea-ultimate
     direnv
     nix-direnv
     nixpkgs-fmt
