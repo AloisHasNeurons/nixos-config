@@ -55,6 +55,7 @@
     direnv
     nix-direnv
     nixpkgs-fmt
+    distrobox
 
     # --- Hyprland Ecosystem ---
     waybar
@@ -106,6 +107,7 @@
       ls = "eza";
       nano = "micro";
       tree = "eza --tree --no-git";
+      "cd.." = "cd ..";
     };
     initContent = ''
       # --- Fastfetch ---

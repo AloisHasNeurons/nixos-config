@@ -197,6 +197,15 @@
     ];
   };
 
+  # Podman
+  virtualisation.podman = {
+    enable = true;
+    # Enable the rootless daemon for your user
+    dockerSocket.enable = true;
+    # Optionally, allow rootless users to use networking
+    defaultNetwork.settings.dns_enabled = true;
+  };
+
   # Fingerprint
   services.fprintd.enable = true;
   # Framework updates
@@ -215,7 +224,7 @@
   users.users.alois = {
     isNormalUser = true;
     description = "Aloïs";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "podman" ];
     packages = with pkgs; [];
     shell = pkgs.zsh;
   };
