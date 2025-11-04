@@ -127,9 +127,39 @@
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true; # Replaces driSupport32Bit
 
-  # Enable a display manager
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  # Disable SDDM
+  services.displayManager.sddm.enable = false;
+  services.displayManager.sddm.wayland.enable = false;
+
+# Enable greetd (the backend)
+  services.greetd = {
+    enable = true;
+  };
+
+  # Enable regreet (the frontend)
+  # This module automatically sets up greetd to run regreet
+  # inside a minimal Wayland compositor.
+  programs.regreet = {
+    enable = true;
+
+    # These settings are automatically written to regreet's config file
+    settings = {
+      background = {
+        color = "#1e1e2e"; # Catppuccin base color
+      };
+      window = {
+        stylesheet = "/etc/greetd/style.css";
+      };
+      commands = {
+        sessions = [ "Hyprland" ]; # Finds the session your config already created
+      };
+    };
+  };
+
+  # Link our theme file so regreet can find it
+  environment.etc = {
+    "greetd/style.css".source = ./style.css;
+  };
 
   # Audio
   services.pipewire = {

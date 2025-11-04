@@ -81,22 +81,25 @@
       };
 
       # --- Window Rules ---
-      # Example: float the file manager
-      # windowrulev2 = "float, class:^(thunar)$"
+      # Make the file manager float
+      windowrulev2 = "float, class:^(thunar)$";
 
       # --- Keybindings ---
-      # (Your existing keybinds, unchanged)
       bind = [
-        # App Launcher
+        # --- App Launchers ---
         "$mainMod, Space, exec, fuzzel"
-        # Terminal
-        "$mainMod, Return, exec, kitty" # Use SUPER + Enter for terminal
-        # Close window (W on AZERTY)
-        "$mainMod, W, killactive,"
-        # --- POWER MENU KEYBIND ---
-        "$mainMod, Escape, exec, wlogout"
+        "$mainMod, Return, exec, kitty"
+        "$mainMod, F, exec, thunar" # Your bind for files
 
-        # Workspaces (AZERTY)
+        # --- Window Management ---
+        "$mainMod, W, killactive," # Close window (W on AZERTY)
+        "$mainMod, M, fullscreen" # Toggle fullscreen
+        "$mainMod, V, togglefloating" # Toggle floating
+
+        # --- System ---
+        "$mainMod, Escape, exec, wlogout" # Power Menu
+        "$mainMod, L, exec, swaylock -f -C /home/alois/.config/swaylock/config" # Lock screen
+        # --- Workspaces (AZERTY) ---
         "$mainMod, ampersand, workspace, 1"
         "$mainMod, eacute, workspace, 2"
         "$mainMod, quotedbl, workspace, 3"
@@ -106,7 +109,8 @@
         "$mainMod, egrave, workspace, 7"
         "$mainMod, underscore, workspace, 8"
         "$mainMod, ccedilla, workspace, 9"
-        # Move window to workspace (AZERTY)
+
+        # --- Move window to workspace (AZERTY) ---
         "$mainMod SHIFT, ampersand, movetoworkspace, 1"
         "$mainMod SHIFT, eacute, movetoworkspace, 2"
         "$mainMod SHIFT, quotedbl, movetoworkspace, 3"
@@ -117,13 +121,40 @@
         "$mainMod SHIFT, underscore, movetoworkspace, 8"
         "$mainMod SHIFT, ccedilla, movetoworkspace, 9"
 
-        # Set brightness
-        ", XF86MonBrightnessUp,   exec, brightnessctl set 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
-        # Screenshots
+        # --- YOUR NEW F-KEY BINDS (Media/Device) ---
+
+        # F1: Mute
+        ", F1, exec, pamixer --toggle-mute"
+        # F2: Volume Down
+        ", F2, exec, pamixer --decrease 5"
+        # F3: Volume Up
+        ", F3, exec, pamixer --increase 5"
+        # F4: Previous
+        ", F4, exec, playerctl previous"
+        # F5: Play/Pause
+        ", F5, exec, playerctl play-pause"
+        # F6: Next
+        ", F6, exec, playerctl next"
+        # F7: Brightness Down
+        ", F7, exec, brightnessctl set 5%-"
+        # F8: Brightness Up
+        ", F8, exec, brightnessctl set 5%+"
+        # F9: (Suggestion: Toggle blur for performance)
+        ", F9, exec, hyprctl keyword decoration:blur:enabled !decoration:blur:enabled"
+        # F10: Airplane Mode (Toggles WiFi/Bluetooth)
+        ", F10, exec, rfkill toggle all"
+
+        # --- Screenshots (from your old config) ---
+        # F11: Copy screen
         ", F11, exec, grimblast copy screen"
+        # Shift + F11: Copy area
         "SHIFT, F11, exec, grimblast copy area"
+        # Ctrl + F11: Copy active window
         "CTRL, F11, exec, grimblast copy active"
+
+        # F12: (Suggestion: Toggle gaps on/off)
+        ", F12, exec, hyprctl keyword general:gaps_in 0 && hyprctl keyword general:gaps_out 0"
+        "SHIFT, F12, exec, hyprctl keyword general:gaps_in 5 && hyprctl keyword general:gaps_out 10"
       ];
     };
   };

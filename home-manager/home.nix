@@ -64,8 +64,13 @@
     grimblast
     fuzzel
     wlogout
-    swayidle  # New: for auto-locking
-    swaylock-effects # New: better fork of swaylock
+    swayidle
+    swaylock-effects
+
+    pkgs.xfce.thunar   # File manager
+    pkgs.xfce.tumbler  # For thumbnails in thunar
+    pamixer             # For audio/volume control
+    playerctl           # For media (play/pause/next) control
 
     # --- Theming ---
     catppuccin-gtk
@@ -113,7 +118,7 @@
     settings = {
       user = {
         name = "Alois";
-        email = "your-email@example.com";
+        email = "alois.vincent@imt-atlantique.net";
       };
     };
   };

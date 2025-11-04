@@ -2,6 +2,7 @@
 { pkgs, ... }:
 
 {
+  # --- Enable the GTK modules ---
   gtk = {
     enable = true;
     theme = {
@@ -14,11 +15,22 @@
     };
   };
 
-  # Set the cursor theme
+  # --- Set the cursor theme ---
   home.pointerCursor = {
-    name = "Catppuccin-Mocha-Dark"; # This name is correct
-    package = pkgs.catppuccin-cursors; # Just install the base package
+    name = "Catppuccin-Mocha-Dark";
+    package = pkgs.catppuccin-cursors;
     size = 24;
-    gtk.enable = true; # Apply to GTK apps
+    gtk.enable = true;
+  };
+
+  # --- NEW: Force apps to use the dark theme ---
+  # This is the most reliable way to apply GTK themes
+  dconf.enable = true;
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      "color-scheme" = "prefer-dark";
+      "gtk-theme" = "Catppuccin-Mocha-Standard-Blue-dark";
+      "icon-theme" = "Papirus-Dark";
+    };
   };
 }

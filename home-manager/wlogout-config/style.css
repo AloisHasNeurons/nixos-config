@@ -30,7 +30,6 @@ button:focus, button:hover {
   color: @base;
 }
 
-/* Style each button by its label */
 #lock {
   border-color: @lavender;
 }

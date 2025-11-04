@@ -22,7 +22,7 @@
       key-hl-color = "f5c2e7"; # Pink
       separator-color = "00000000"; # Transparent
 
-      image = "~/Documents/nix-config/wallpapers/porco_rosso.jpg";
+      image = "/home/alois/Documents/nix-config/wallpapers/porco_rosso.jpg";
       scaling = "fill";
 
       blur = "7x5";
