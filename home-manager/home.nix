@@ -7,7 +7,6 @@
 }: {
   home.stateVersion = "25.05";
 
-  # Import all your new component files
   imports = [
     ./waybar.nix
     ./hyprland.nix
@@ -27,8 +26,6 @@
     };
   };
 
-  # Your core packages
-  # We'll add a few theme/tool packages here
   home.packages = with pkgs; [
     # --- System & Utils ---
     steam
@@ -67,8 +64,8 @@
     swayidle
     swaylock-effects
 
-    pkgs.xfce.thunar   # File manager
-    pkgs.xfce.tumbler  # For thumbnails in thunar
+    pkgs.xfce.thunar    # File manager
+    pkgs.xfce.tumbler   # For thumbnails in thunar
     pamixer             # For audio/volume control
     playerctl           # For media (play/pause/next) control
 
@@ -79,6 +76,7 @@
     nerd-fonts.jetbrains-mono
     font-awesome
   ];
+
 
   # --- ZSH, Git, Direnv ---
   # (These are small and fine to keep in home.nix)
