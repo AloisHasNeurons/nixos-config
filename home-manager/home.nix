@@ -112,6 +112,29 @@
     '';
   };
 
+  # --- System theme ---
+  services.darkman = {
+    enable = true;
+    settings = {
+      usegeoclue2 = true;
+    };
+
+    # This single command tells GTK apps (like Firefox) to switch.
+    darkModeScripts = {
+      gtk-theme = ''
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+      '';
+    };
+
+    lightModeScripts = {
+      gtk-theme = ''
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-light'"
+      '';
+    };
+  };
+
+  dconf.enable = true;
+
   programs.git = {
     enable = true;
     settings = {

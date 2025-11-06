@@ -91,6 +91,9 @@
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
+  # Enable geoclue to find localisation
+  services.geoclue2.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
