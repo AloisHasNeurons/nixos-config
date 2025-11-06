@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   lib,
@@ -79,7 +77,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -131,7 +129,7 @@
   services.displayManager.sddm.enable = false;
   services.displayManager.sddm.wayland.enable = false;
 
-# Enable greetd (the backend)
+  # Enable greetd (the backend)
   services.greetd = {
     enable = true;
   };
