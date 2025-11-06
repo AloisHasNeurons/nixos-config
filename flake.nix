@@ -22,19 +22,27 @@
     inherit (self) outputs;
   in {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
+      # --- Framework Laptop ---
       nixos = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-	  ./nixos/configuration.nix
-	  home-manager.nixosModules.home-manager
-	];
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+        ];
+      };
+
+      # --- Hetzner VPS ---
+      vps = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./vps/configuration.nix
+        ];
       };
     };
 
     # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
       "alois@nixos" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
