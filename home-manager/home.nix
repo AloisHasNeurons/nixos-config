@@ -52,6 +52,7 @@
     nix-direnv
     nixpkgs-fmt
     distrobox
+    docker
 
     # --- Hyprland Ecosystem ---
     waybar
@@ -68,6 +69,8 @@
     pkgs.xfce.tumbler   # For thumbnails in thunar
     pamixer             # For audio/volume control
     playerctl           # For media (play/pause/next) control
+
+    agenix-cli # Secrets
 
     # --- Theming ---
     catppuccin-gtk

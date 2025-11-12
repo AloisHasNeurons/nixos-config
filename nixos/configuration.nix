@@ -53,9 +53,9 @@
 
     # Garbage collector
     gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
     };
 
     # Opinionated: disable channels
@@ -71,6 +71,13 @@
     enable = true;
 
     configurationLimit = 10;
+
+    extraEntries = {
+      "opensuse.conf" = ''
+        title   openSUSE Tumbleweed
+        efi     /EFI/opensuse/shim.efi
+      '';
+    };
   };
   boot.loader.efi.canTouchEfiVariables = true;
 
